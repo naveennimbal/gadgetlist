@@ -1,0 +1,82 @@
+
+
+
+<div class="row">
+    <div class="col-xs-6 col-left">
+            <div class="dataTables_info" >
+                Showing
+                <?php echo $this->firstItemNumber ?>
+                to
+                <?php echo $this->lastItemNumber ?>
+                of
+                <?php echo $this->totalItemCount ?>
+                records
+            </div>
+    </div>
+    <div class="col-xs-6 col-right">
+
+
+
+        <?php if ($this->pageCount): ?>
+            <div class="dataTables_paginate paging_bootstrap">
+                <ul class="pagination pagination-sm">
+                    <!-- Previous page link -->
+                    <?php if (isset($this->previous)): ?>
+                        <li class="prev">
+                            <a href="<?php echo $this->url($this->route); ?>?page=<?php echo $this->previous; ?>">
+                                <i class="entypo-left-open"></i>
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <li class=" prev disabled">
+                            <a href="#">
+                                <i class="entypo-left-open"></i>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Numbered page links -->
+                    <?php foreach ($this->pagesInRange as $page): ?>
+                        <?php if ($page != $this->current): ?>
+                            <li>
+                                <a href="<?php echo $this->url($this->route); ?>?page=<?php echo $page; ?>">
+                                    <?php echo $page; ?>
+                                </a>
+                            </li>
+                        <?php else: ?>
+                            <li class="active">
+                                <a href="#"><?php echo $page; ?></a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
+                    <!-- Next page link -->
+                    <?php if (isset($this->next)): ?>
+                        <li class="next">
+                            <a href="<?php echo $this->url($this->route); ?>?page=<?php echo $this->next; ?>">
+                                <i class="entypo-right-open"></i>
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <li class="next disabled">
+                            <a href="#">
+                                <i class="entypo-right-open"></i>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+
+
+
+        <!--<div class="dataTables_paginate paging_bootstrap">
+            <ul class="pagination pagination-sm">
+                <li class="prev disabled"><a href="#"><i class="entypo-left-open"></i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li class="next"><a href="#"><i class="entypo-right-open"></i></a></li>
+            </ul>
+        </div> -->
+    </div>
+</div>

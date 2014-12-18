@@ -1,0 +1,41 @@
+<table class="table table-bordered datatable" id="table-1">
+<thead>
+<tr>
+
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Brand</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+</thead>
+<tbody>
+<?php
+    $table = "";
+    foreach($result as $key => $val){
+        //var_dump($val);
+        $table .= "<tr>";
+        $table .="<td>".$val->product_name."</td>";
+        $table .="<td>".$val->category_id."</td>";
+        $table .="<td>".$val->brand_id."</td>";
+        $table .="<td>".$val->status."</td>";
+        $table .="<td>Action</td>";
+        $table .= "</tr>\n";
+    }
+    echo $table;
+
+
+?>
+
+
+</tbody>
+<tfoot>
+<tr>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Brand</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+</tfoot>
+</table>
